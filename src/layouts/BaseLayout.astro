@@ -1,0 +1,9 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+import 'katex/dist/katex.min.css';
+const { pageTitle } = Astro.props;
+---
+<html lang="zh-CN"><head><meta charset="utf-8" /><link rel="icon" type="image/x-icon" sizes="any" href="/favicon.ico?v=2" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="description" content="秋木的个人网站与笔记。" /><meta name="generator" content={Astro.generator} /><title>{pageTitle}</title></head>
+<body><div class="site-shell"><Header /><slot /><Footer /></div><script>import "../scripts/menu.js";</script></body></html>

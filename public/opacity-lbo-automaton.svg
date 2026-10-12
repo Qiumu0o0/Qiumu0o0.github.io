@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="580" height="300" viewBox="0 0 580 300" role="img" aria-labelledby="title desc">
+  <title id="title">Language-based opacity example automaton</title>
+  <desc id="desc">Initial state 0. Transitions: 0 to 1 on a; 1 to 2 on b; 1 to 3 on d; 2 to itself on c; 2 to 4 on d; 3 to 4 on b.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 1 1 L 9 5 L 1 9" fill="none" stroke="#222" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <rect width="580" height="300" rx="12" fill="#fff"/>
+  <g fill="none" stroke="#222" stroke-width="2" marker-end="url(#arrow)">
+    <path d="M 26 180 H 75"/>
+    <path data-transition="0,a,1" d="M 125 180 H 225"/>
+    <path data-transition="1,b,2" d="M 275 180 H 405"/>
+    <path data-transition="1,d,3" d="M 250 155 V 85"/>
+    <path data-transition="2,c,2" d="M 414 199 C 360 275 500 275 446 199"/>
+    <path data-transition="2,d,4" d="M 430 155 V 85"/>
+    <path data-transition="3,b,4" d="M 275 60 H 405"/>
+  </g>
+  <g fill="#fff" stroke="#222" stroke-width="2">
+    <circle cx="100" cy="180" r="24"/>
+    <circle cx="250" cy="180" r="24"/>
+    <circle cx="430" cy="180" r="24"/>
+    <circle cx="250" cy="60" r="24"/>
+    <circle cx="430" cy="60" r="24"/>
+  </g>
+  <g fill="#222" font-family="'Times New Roman', Georgia, serif" font-size="24" text-anchor="middle" dominant-baseline="central">
+    <text x="100" y="180">0</text>
+    <text x="250" y="180">1</text>
+    <text x="430" y="180">2</text>
+    <text x="250" y="60">3</text>
+    <text x="430" y="60">4</text>
+  </g>
+  <g fill="#222" font-family="'Times New Roman', Georgia, serif" font-size="24" font-style="italic" text-anchor="middle">
+    <text x="175" y="166">a</text>
+    <text x="340" y="166">b</text>
+    <text x="232" y="127">d</text>
+    <text x="430" y="282">c</text>
+    <text x="412" y="127">d</text>
+    <text x="340" y="46">b</text>
+  </g>
+</svg>

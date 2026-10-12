@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import homework1Url from './homework1.pdf?url';
+---
+
+<BaseLayout pageTitle="线性代数II · 教学">
+  <main class="course-page">
+    <h1>2026秋西安交通大学线性代数II</h1>
+    <section>
+      <h2>作业解答</h2>
+      <ul>
+        <li><a href={homework1Url}>第一章作业</a></li>
+      </ul>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .course-page { position:relative; left:50%; width:min(calc(100vw - 40px),1000px); min-height:65vh; transform:translateX(-50%); padding:48px 0 80px; }
+  h1 { margin:0 0 28px; font-size:1.65rem; font-weight:500; }
+  h2 { margin:0 0 12px; font-size:1.15rem; font-weight:500; }
+  ul { margin:0; padding-left:1.25rem; }
+  a { color:var(--muted); text-underline-offset:3px; }
+  a:hover { color:var(--text); }
+</style>

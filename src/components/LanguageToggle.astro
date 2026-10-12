@@ -1,0 +1,16 @@
+<button id="languageToggle" class="language-toggle" type="button" aria-label="切换中英文">EN</button>
+<script is:inline>
+  const languageButton = document.getElementById('languageToggle');
+  const applyLanguage = (language) => {
+    document.documentElement.lang = language === 'zh' ? 'zh-CN' : 'en';
+    document.querySelectorAll('[data-zh][data-en]').forEach((element) => {
+      element.textContent = element.dataset[language];
+    });
+    if (languageButton) languageButton.textContent = language === 'zh' ? '中' : 'EN';
+    localStorage.setItem('language', language);
+  };
+  applyLanguage(localStorage.getItem('language') || 'zh');
+  languageButton?.addEventListener('click', () => {
+    applyLanguage(document.documentElement.lang.startsWith('zh') ? 'en' : 'zh');
+  });
+</script>

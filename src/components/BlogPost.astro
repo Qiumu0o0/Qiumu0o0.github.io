@@ -1,0 +1,15 @@
+---
+const { title, url, description, pubDate, readingMinutes, tags = [], image } = Astro.props;
+const parsedDate = pubDate ? new Date(pubDate) : null;
+const hasDate = parsedDate && !Number.isNaN(parsedDate.valueOf());
+const date = hasDate ? new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: 'numeric' }).format(parsedDate) : '';
+---
+<article class:list={['post-entry', { 'has-image': image }]} style={image ? `--card-image:url("${image}")` : undefined}>
+  <a href={url}>
+    {hasDate && <time datetime={parsedDate.toISOString()}>{date}</time>}
+    <div class="post-title-row"><h2>{title}</h2><span class="card-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+    {description && <p>{description}</p>}
+    {readingMinutes && <span class="reading-time"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>{readingMinutes} min read</span>}
+    {tags.length > 0 && <div class="post-tags" aria-label="文章标签">{tags.map((tag: string) => <span>{tag}</span>)}</div>}
+  </a>
+</article>

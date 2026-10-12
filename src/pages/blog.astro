@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BlogPost from '../components/BlogPost.astro';
+
+const allPosts = Object.values(import.meta.glob('../pages/posts/*.md', { eager: true }))
+  .sort((a: any, b: any) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf());
+const pageTitle = 'Blog · 秋木';
+const getReadingMinutes = (content = '') => {
+  const chineseCharacters = (content.match(/[\u3400-\u9fff]/g) || []).length;
+  const latinWords = content.replace(/[\u3400-\u9fff]/g, ' ').trim().split(/\s+/).filter(Boolean).length;
+  return Math.max(1, Math.ceil(chineseCharacters / 300 + latinWords / 200));
+};
+---
+<BaseLayout pageTitle={pageTitle}>
+  <main class="blog-page">
+    <header class="blog-heading"><h1>All</h1><p>Page 1 - Showing {Math.min(15, allPosts.length)} of {allPosts.length} posts</p></header>
+
+    <div class="blog-layout">
+      <section class="post-feed" aria-label="文章列表">
+        {allPosts.map((post: any) => (
+          <BlogPost
+            url={post.url}
+            title={post.frontmatter.title}
+            description={post.frontmatter.description}
+            pubDate={post.frontmatter.pubDate}
+            readingMinutes={getReadingMinutes(post.rawContent?.() || '')}
+            tags={post.frontmatter.tags || []}
+            image={post.frontmatter.image?.url}
+          />
+        ))}
+      </section>
+
+      <aside class="blog-sidebar" aria-label="博客归档">
+        <section class="sidebar-panel">
+          <h2><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="1.5"/><ellipse cx="12" cy="12" rx="9" ry="3.8"/><ellipse cx="12" cy="12" rx="9" ry="3.8" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="3.8" transform="rotate(120 12 12)"/></svg>Collections</h2>
+          <a class="collection-card" href="/blog/">
+            <strong>全部文章</strong>
+            <span>学习、研究与生活记录</span>
+            <small>{allPosts.length} posts</small>
+          </a>
+        </section>
+      </aside>
+    </div>
+  </main>
+</BaseLayout>

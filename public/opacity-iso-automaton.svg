@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="580" height="300" viewBox="0 0 580 300" role="img" aria-labelledby="title desc">
+  <title id="title">Initial-state opacity example automaton</title>
+  <desc id="desc">The manuscript's initial arrow points to state 0. Transitions: 0 to itself on a; 0 to 2 on unobservable tau; 2 to 1 on a; 1 to 0 on b; 1 to 3 on unobservable tau; 3 to 1 on b. The accompanying ISO example compares multiple possible initial states.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 1 1 L 9 5 L 1 9" fill="none" stroke="#222" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <rect width="580" height="300" rx="12" fill="#fff"/>
+  <g fill="none" stroke="#222" stroke-width="2" marker-end="url(#arrow)">
+    <path d="M 26 210 H 95"/>
+    <path data-transition="0,a,0" d="M 101 226 C 45 285 195 285 139 226"/>
+    <path data-transition="0,tau,2" d="M 120 185 V 95"/>
+    <path data-transition="2,a,1" d="M 141 82 L 339 198"/>
+    <path data-transition="1,b,0" d="M 335 210 H 145"/>
+    <path data-transition="1,tau,3" d="M 360 185 V 95"/>
+    <path data-transition="3,b,1" d="M 382 80 C 460 110 460 170 382 199"/>
+  </g>
+  <g fill="#fff" stroke="#222" stroke-width="2">
+    <circle cx="120" cy="210" r="24"/>
+    <circle cx="360" cy="210" r="24"/>
+    <circle cx="120" cy="70" r="24"/>
+    <circle cx="360" cy="70" r="24"/>
+  </g>
+  <g fill="#222" font-family="'Times New Roman', Georgia, serif" font-size="24" text-anchor="middle" dominant-baseline="central">
+    <text x="120" y="210">0</text>
+    <text x="360" y="210">1</text>
+    <text x="120" y="70">2</text>
+    <text x="360" y="70">3</text>
+  </g>
+  <g fill="#222" font-family="'Times New Roman', Georgia, serif" font-size="24" font-style="italic" text-anchor="middle">
+    <text x="120" y="285">a</text>
+    <text x="100" y="147">τ</text>
+    <text x="251" y="127">a</text>
+    <text x="240" y="196">b</text>
+    <text x="340" y="147">τ</text>
+    <text x="453" y="147">b</text>
+  </g>
+</svg>

@@ -1,0 +1,100 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const friends = [
+  {
+    name: "Axi's Blog",
+    description: '一只可爱小猫',
+    url: 'https://axi404.top',
+    avatar: 'https://axi404.top/avatar/avatar.png',
+  },
+];
+
+const siteInfo = [
+  ['Name', "Qiumu's Blog"],
+  ['Desc', 'named by Aaron and Zachary'],
+  ['Link', 'https://zachary0o0.netlify.app'],
+  ['Avatar', 'https://zachary0o0.netlify.app/avatar.png'],
+];
+---
+
+<BaseLayout pageTitle="友链 | 秋木的小站">
+  <main class="links-page">
+    <header class="links-heading">
+      <p class="blog-kicker">Friends</p>
+      <h1>Links</h1>
+      <p>认识有趣的人，也发现更大的世界。</p>
+    </header>
+
+    <section aria-labelledby="friends-title">
+      <h2 id="friends-title">友链</h2>
+      <div class="friend-grid">
+        {friends.map((friend) => (
+          <a class="friend-card" href={friend.url} target="_blank" rel="noreferrer">
+            <img src={friend.avatar} alt="" loading="lazy" />
+            <span><strong>{friend.name}</strong><small>{friend.description}</small></span>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="apply-links" aria-labelledby="apply-title">
+      <h2 id="apply-title">申请友链</h2>
+      <p>请先在你的网站添加本站，然后通过邮件发送你的名称、简介、链接与头像。</p>
+      <div class="site-info">
+        {siteInfo.map(([label, value]) => (
+          <button type="button" class="copy-field" data-copy={value} title="点击复制">
+            <strong>{label}</strong><span>{value}</span><em>复制</em>
+          </button>
+        ))}
+      </div>
+      <a class="apply-button" href="mailto:hello@example.com?subject=友链申请">发送申请</a>
+    </section>
+    <section class="comments" aria-label="Comments">
+      <script
+        is:inline
+        src="https://giscus.app/client.js"
+        data-repo="Qiumu0o0/commentForQiumu0o0"
+        data-repo-id="R_kgDOUud75A"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOUud75M4DGgri"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="light"
+        data-lang="en"
+        crossorigin="anonymous"
+        async
+      ></script>
+    </section>
+  </main>
+</BaseLayout>
+
+<script>
+  const syncGiscusTheme = () => {
+    const theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+    document.querySelector<HTMLIFrameElement>('iframe.giscus-frame')?.contentWindow?.postMessage(
+      { giscus: { setConfig: { theme } } },
+      'https://giscus.app',
+    );
+  };
+
+  new MutationObserver(syncGiscusTheme).observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['class'],
+  });
+  window.addEventListener('message', (event) => {
+    if (event.origin === 'https://giscus.app') syncGiscusTheme();
+  });
+
+  document.querySelectorAll<HTMLButtonElement>('[data-copy]').forEach((button) => {
+    button.addEventListener('click', async () => {
+      await navigator.clipboard.writeText(button.dataset.copy ?? '');
+      const label = button.querySelector('em');
+      if (label) label.textContent = '已复制';
+      window.setTimeout(() => { if (label) label.textContent = '复制'; }, 1200);
+    });
+  });
+</script>
