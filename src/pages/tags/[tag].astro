@@ -3,12 +3,16 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import BlogPost from '../../components/BlogPost.astro';
 
 export async function getStaticPaths() {
-  const allPosts = Object.values(import.meta.glob('../posts/*.md', { eager: true }));
+  const allPosts = Object.values(import.meta.glob('../posts/**/*.md', { eager: true }));
 
-  const uniqueTags = [...new Set(allPosts.map((post: any) => post.frontmatter.tags).flat())];
+  const uniqueTags = [...new Set(allPosts.flatMap((post: any) =>
+    Array.isArray(post.frontmatter.tags) ? post.frontmatter.tags : []
+  ))];
 
   return uniqueTags.map((tag) => {
-    const filteredPosts = allPosts.filter((post: any) => post.frontmatter.tags.includes(tag));
+    const filteredPosts = allPosts.filter((post: any) =>
+      Array.isArray(post.frontmatter.tags) && post.frontmatter.tags.includes(tag)
+    );
     return {
       params: { tag },
       props: { posts: filteredPosts },
