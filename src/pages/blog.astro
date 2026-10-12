@@ -2,7 +2,17 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import BlogPost from '../components/BlogPost.astro';
 
-const allPosts = Object.values(import.meta.glob('../pages/posts/**/*.md', { eager: true }))
+const postModules = import.meta.glob('../pages/posts/**/*.md', { eager: true });
+const categories = [
+  { folder: 'AcademicTech', slug: 'academic-tech', label: 'Academic & Tech' },
+  { folder: 'PersonalGrowth', slug: 'personal-growth', label: 'Personal Growth' },
+  { folder: 'Toys', slug: 'toys', label: 'Toys' },
+];
+const allPosts = Object.entries(postModules)
+  .map(([path, post]: [string, any]) => ({
+    ...post,
+    category: categories.find(({ folder }) => path.includes(`/posts/${folder}/`))?.slug,
+  }))
   .sort((a: any, b: any) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf());
 const pageTitle = 'Blog · 秋木';
 const getReadingMinutes = (content = '') => {
@@ -17,29 +27,51 @@ const getReadingMinutes = (content = '') => {
 
     <div class="blog-layout">
       <section class="post-feed" aria-label="文章列表">
-        {allPosts.map((post: any) => (
-          <BlogPost
-            url={post.url}
-            title={post.frontmatter.title}
-            description={post.frontmatter.description}
-            pubDate={post.frontmatter.pubDate}
-            readingMinutes={getReadingMinutes(post.rawContent?.() || '')}
-            tags={post.frontmatter.tags || []}
-            image={post.frontmatter.image?.url}
-          />
-        ))}
+        {categories.map((category) => {
+          const posts = allPosts.filter((post: any) => post.category === category.slug);
+          return (
+            <section class="post-group" id={category.slug}>
+              <h2>{category.label}</h2>
+              {posts.map((post: any) => (
+                <BlogPost
+                  url={post.url}
+                  title={post.frontmatter.title}
+                  description={post.frontmatter.description}
+                  pubDate={post.frontmatter.pubDate}
+                  readingMinutes={getReadingMinutes(post.rawContent?.() || '')}
+                  tags={post.frontmatter.tags || []}
+                  image={post.frontmatter.image?.url}
+                />
+              ))}
+            </section>
+          );
+        })}
       </section>
 
       <aside class="blog-sidebar" aria-label="博客归档">
         <section class="sidebar-panel">
           <h2><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="1.5"/><ellipse cx="12" cy="12" rx="9" ry="3.8"/><ellipse cx="12" cy="12" rx="9" ry="3.8" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="3.8" transform="rotate(120 12 12)"/></svg>Collections</h2>
-          <a class="collection-card" href="/blog/">
-            <strong>全部文章</strong>
-            <span>学习、研究与生活记录</span>
-            <small>{allPosts.length} posts</small>
-          </a>
+          <div class="collection-list">
+            <a class="collection-card" href="/blog/">
+              <strong>All</strong>
+              <small>{allPosts.length} posts</small>
+            </a>
+            {categories.map((category) => (
+              <a class="collection-card" href={`#${category.slug}`}>
+                <strong>{category.label}</strong>
+                <small>{allPosts.filter((post: any) => post.category === category.slug).length} posts</small>
+              </a>
+            ))}
+          </div>
         </section>
       </aside>
     </div>
   </main>
 </BaseLayout>
+
+<style>
+  .post-group { display:flex; flex-direction:column; gap:16px; scroll-margin-top:24px; }
+  .post-group + .post-group { margin-top:34px; }
+  .post-group > h2 { margin:0 0 2px; font-size:1.1rem; font-weight:600; }
+  .collection-list { display:flex; flex-direction:column; gap:8px; }
+</style>
