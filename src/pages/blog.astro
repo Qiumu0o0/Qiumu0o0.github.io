@@ -25,27 +25,24 @@ const getReadingMinutes = (content = '') => {
   <main class="blog-page">
     <header class="blog-heading"><h1>All</h1><p>Page 1 - Showing {Math.min(15, allPosts.length)} of {allPosts.length} posts</p></header>
 
+    <nav class="category-nav" aria-label="Blog collections">
+      <a class="active" href="/blog/">All</a>
+      {categories.map((category) => <a href={`/blog/${category.slug}/`}>{category.label}</a>)}
+    </nav>
+
     <div class="blog-layout">
       <section class="post-feed" aria-label="文章列表">
-        {categories.map((category) => {
-          const posts = allPosts.filter((post: any) => post.category === category.slug);
-          return (
-            <section class="post-group" id={category.slug}>
-              <h2>{category.label}</h2>
-              {posts.map((post: any) => (
-                <BlogPost
-                  url={post.url}
-                  title={post.frontmatter.title}
-                  description={post.frontmatter.description}
-                  pubDate={post.frontmatter.pubDate}
-                  readingMinutes={getReadingMinutes(post.rawContent?.() || '')}
-                  tags={post.frontmatter.tags || []}
-                  image={post.frontmatter.image?.url}
-                />
-              ))}
-            </section>
-          );
-        })}
+        {allPosts.map((post: any) => (
+          <BlogPost
+            url={post.url}
+            title={post.frontmatter.title}
+            description={post.frontmatter.description}
+            pubDate={post.frontmatter.pubDate}
+            readingMinutes={getReadingMinutes(post.rawContent?.() || '')}
+            tags={post.frontmatter.tags || []}
+            image={post.frontmatter.image?.url}
+          />
+        ))}
       </section>
 
       <aside class="blog-sidebar" aria-label="博客归档">
@@ -57,7 +54,7 @@ const getReadingMinutes = (content = '') => {
               <small>{allPosts.length} posts</small>
             </a>
             {categories.map((category) => (
-              <a class="collection-card" href={`#${category.slug}`}>
+              <a class="collection-card" href={`/blog/${category.slug}/`}>
                 <strong>{category.label}</strong>
                 <small>{allPosts.filter((post: any) => post.category === category.slug).length} posts</small>
               </a>
@@ -70,8 +67,9 @@ const getReadingMinutes = (content = '') => {
 </BaseLayout>
 
 <style>
-  .post-group { display:flex; flex-direction:column; gap:16px; scroll-margin-top:24px; }
-  .post-group + .post-group { margin-top:34px; }
-  .post-group > h2 { margin:0 0 2px; font-size:1.1rem; font-weight:600; }
+  .category-nav { display:flex; flex-wrap:wrap; gap:8px; margin:0 0 24px -24px; }
+  .category-nav a { padding:6px 12px; border:1px solid var(--line); border-radius:999px; color:var(--muted); font-size:.8rem; text-decoration:none; }
+  .category-nav a:hover,.category-nav a.active { border-color:var(--accent); color:var(--text); background:var(--wash-hover); }
   .collection-list { display:flex; flex-direction:column; gap:8px; }
+  @media (max-width:760px) { .category-nav { margin-left:0; } }
 </style>

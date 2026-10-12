@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogPost from '../../components/BlogPost.astro';
+
+export function getStaticPaths() {
+  const categories = [
+    { folder: 'AcademicTech', slug: 'academic-tech', label: 'Academic & Tech' },
+    { folder: 'PersonalGrowth', slug: 'personal-growth', label: 'Personal Growth' },
+    { folder: 'Toys', slug: 'toys', label: 'Toys' },
+  ];
+  const postModules = import.meta.glob('../posts/**/*.md', { eager: true });
+  return categories.map((category) => ({
+    params: { category: category.slug },
+    props: {
+      category,
+      categories,
+      posts: Object.entries(postModules)
+        .filter(([path]) => path.includes(`/posts/${category.folder}/`))
+        .map(([, post]) => post)
+        .sort((a: any, b: any) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()),
+    },
+  }));
+}
+
+const { category, categories, posts } = Astro.props;
+const getReadingMinutes = (content = '') => {
+  const chineseCharacters = (content.match(/[\u3400-\u9fff]/g) || []).length;
+  const latinWords = content.replace(/[\u3400-\u9fff]/g, ' ').trim().split(/\s+/).filter(Boolean).length;
+  return Math.max(1, Math.ceil(chineseCharacters / 300 + latinWords / 200));
+};
+---
+
+<BaseLayout pageTitle={`${category.label} · Blog`}>
+  <main class="blog-page">
+    <header class="blog-heading"><h1>{category.label}</h1><p>Showing {posts.length} posts</p></header>
+
+    <nav class="category-nav" aria-label="Blog collections">
+      <a href="/blog/">All</a>
+      {categories.map((item) => <a class:list={{ active: item.slug === category.slug }} href={`/blog/${item.slug}/`}>{item.label}</a>)}
+    </nav>
+
+    <div class="blog-layout">
+      <section class="post-feed" aria-label={`${category.label} posts`}>
+        {posts.map((post: any) => (
+          <BlogPost
+            url={post.url}
+            title={post.frontmatter.title}
+            description={post.frontmatter.description}
+            pubDate={post.frontmatter.pubDate}
+            readingMinutes={getReadingMinutes(post.rawContent?.() || '')}
+            tags={post.frontmatter.tags || []}
+            image={post.frontmatter.image?.url}
+          />
+        ))}
+      </section>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .category-nav { display:flex; flex-wrap:wrap; gap:8px; margin:0 0 24px -24px; }
+  .category-nav a { padding:6px 12px; border:1px solid var(--line); border-radius:999px; color:var(--muted); font-size:.8rem; text-decoration:none; }
+  .category-nav a:hover,.category-nav a.active { border-color:var(--accent); color:var(--text); background:var(--wash-hover); }
+  @media (max-width:760px) { .category-nav { margin-left:0; } }
+</style>
