@@ -46,7 +46,16 @@ const siteInfo = [
 
     <section class="apply-links" aria-labelledby="apply-title">
       <h2 id="apply-title">申请友链</h2>
-      <p>请先在你的网站添加本站，然后通过邮件发送你的名称、简介、链接与头像。</p>
+      <p>请先在你的网站添加本站，然后通过邮件发送或者在评论区留言，提供你的名称、简介、链接与头像。</p>
+      <div class="apply-rules">
+        <h3>申请说明</h3>
+        <ul>
+          <li>申请前请先在你的友链页面添加本站；</li>
+          <li>请确保站点可以正常访问，并保持持续维护；</li>
+          <li>博客内容应符合法律法规；</li>
+          <li>请按照名称、简介、链接、头像的格式提交信息。</li>
+        </ul>
+      </div>
       <div class="site-info">
         {siteInfo.map(([label, value]) => (
           <button type="button" class="copy-field" data-copy={value} title="点击复制">
