@@ -21,7 +21,14 @@ export default defineConfig({
         },
       }]],
     }),
-    shikiConfig: { langAlias: { systemverilog: 'system-verilog' } },
+    shikiConfig: {
+      themes: {
+        light: 'github-light',
+        dark: 'github-dark',
+      },
+      defaultColor: 'light',
+      langAlias: { systemverilog: 'system-verilog' },
+    },
   },
   integrations: [preact()]
 });
