@@ -84,6 +84,8 @@ const updatedDate = formatDate(frontmatter.updatedDate || frontmatter.pubDate);
   .article-divider { width:44%; margin:0 0 32px; border:0; border-top:1px solid var(--line); }
   .article-body { width:100%; color:var(--muted); font-size:1rem; line-height:1.8; }
   .article-body :global(:where(p,li,blockquote,figcaption,td,th,a,strong,em,code)) { color:var(--muted); }
+  :global(html:not(.dark)) .article-body,
+  :global(html:not(.dark)) .article-body :global(:where(p,li,blockquote,figcaption,td,th,a,strong,em,code)) { color:#3f4d61; }
   .article-body :global(h1) { margin:42px 0 14px; color:var(--text); font-size:1.75rem; }
   .article-body :global(h2) { margin:42px 0 14px; color:var(--text); font-size:1.45rem; }
   .article-body :global(h3) { margin:30px 0 12px; color:var(--text); font-size:1.15rem; }
