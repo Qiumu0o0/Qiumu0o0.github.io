@@ -90,6 +90,9 @@ const updatedDate = formatDate(frontmatter.updatedDate || frontmatter.pubDate);
   .article-body :global(h2) { margin:42px 0 14px; color:var(--text); font-size:1.45rem; }
   .article-body :global(h3) { margin:30px 0 12px; color:var(--text); font-size:1.15rem; }
   .article-body :global(p) { margin:0 0 1.15em; color:var(--muted); text-indent:2em; }
+  .article-body :global(blockquote) { margin:1.5em 0; padding:16px 18px; border-left:4px solid var(--accent); border-radius:0 8px 8px 0; background:var(--wash); }
+  .article-body :global(blockquote p) { text-indent:0; }
+  .article-body :global(blockquote > :last-child) { margin-bottom:0; }
   .article-body :global(a) { text-underline-offset:3px; }
   .article-body :global(a:hover) { color:var(--text); }
   .article-body :global(img) { max-width:100%; border-radius:10px; }
