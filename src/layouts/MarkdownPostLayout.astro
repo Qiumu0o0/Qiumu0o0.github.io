@@ -6,7 +6,7 @@ const renderedContent = await Astro.slots.render('default');
 const headings = [...renderedContent.matchAll(/<h([23]) id="([^"]+)"[^>]*>(.*?)<\/h\1>/g)].map((match) => ({
   depth: Number(match[1]),
   slug: match[2],
-  text: match[3].replace(/<[^>]+>/g, ''),
+  html: match[3],
 }));
 const plainText = renderedContent.replace(/<[^>]+>/g, ' ');
 const chineseCharacters = (plainText.match(/[\u3400-\u9fff]/g) || []).length;
@@ -37,7 +37,7 @@ const updatedDate = formatDate(frontmatter.updatedDate || frontmatter.pubDate);
     <aside class="toc" aria-label="Table of contents">
       <h2>TABLE OF CONTENTS</h2>
       <ol>
-        {headings.map((heading) => <li class:list={{ nested: heading.depth === 3 }}><a href={`#${heading.slug}`}>{heading.text}</a></li>)}
+        {headings.map((heading) => <li class:list={{ nested: heading.depth === 3 }}><a href={`#${heading.slug}`} set:html={heading.html} /></li>)}
       </ol>
     </aside>
   </main>
@@ -69,6 +69,7 @@ const updatedDate = formatDate(frontmatter.updatedDate || frontmatter.pubDate);
   .toc ol { display:flex; flex-direction:column; gap:8px; margin:0; padding:0; list-style:none; }
   .toc li.nested { padding-left:12px; }
   .toc a { color:var(--muted); font-size:.9rem; line-height:1.45; text-decoration:none; }
+  .toc :global(.katex) { font-size:1em; }
   .toc a:hover { color:var(--text); }
   .article { position:relative; z-index:1; min-width:0; grid-column:1; grid-row:1; }
   .hero-image { position:relative; width:100%; margin-bottom:32px; }
