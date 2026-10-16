@@ -68,9 +68,9 @@ const updatedDate = formatDate(frontmatter.updatedDate || frontmatter.pubDate);
   .toc h2 { margin:0 0 20px; color:var(--text); font-size:.92rem; font-weight:650; letter-spacing:.02em; }
   .toc ol { display:flex; flex-direction:column; gap:8px; margin:0; padding:0; list-style:none; }
   .toc li.nested { padding-left:12px; }
-  .toc a { color:var(--muted); font-size:.9rem; line-height:1.45; text-decoration:none; }
+  .toc a { display:block; padding:5px 10px; border-left:2px solid transparent; border-radius:0 6px 6px 0; color:var(--muted); font-size:.9rem; line-height:1.45; text-decoration:none; transition:color .2s,background .2s,border-color .2s,transform .2s; }
   .toc :global(.katex) { font-size:1em; }
-  .toc a:hover { color:var(--text); }
+  .toc a:hover,.toc a:focus-visible { border-left-color:var(--accent); background:var(--wash-hover); color:var(--text); transform:translateX(4px); }
   .article { position:relative; z-index:1; min-width:0; grid-column:1; grid-row:1; }
   .hero-image { position:relative; width:100%; margin-bottom:32px; }
   .article-cover { position:relative; z-index:1; width:100%; aspect-ratio:1200 / 630; display:block; border-radius:16px; object-fit:cover; }
