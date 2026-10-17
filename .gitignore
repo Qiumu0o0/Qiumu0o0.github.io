@@ -26,3 +26,4 @@ pnpm-debug.log*
 /secret posts_tmp
 
 /DIR.md
+/src\pages\posts\drafts
