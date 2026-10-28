@@ -27,3 +27,6 @@ pnpm-debug.log*
 
 /DIR.md
 /src\pages\posts\drafts
+
+# local skills
+/.skill/
