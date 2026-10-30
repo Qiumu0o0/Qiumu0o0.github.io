@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 170" width="560" height="170" role="img" aria-labelledby="title desc">
+  <title id="title">Three-state labeled finite-state automaton without the self-loop</title>
+  <desc id="desc">Initial state q0 transitions by e1 to q1, and q1 transitions by e2 to q2. State q2 has no outgoing transition.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 1 L 7 4 L 0 7" fill="none" stroke="#111" stroke-width="1.2" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <rect width="560" height="170" fill="#fff"/>
+  <g fill="none" stroke="#111" stroke-width="1.4">
+    <circle cx="105" cy="112" r="23"/>
+    <circle cx="280" cy="112" r="23"/>
+    <circle cx="455" cy="112" r="23"/>
+    <path d="M 25 112 H 81" marker-end="url(#arrow)"/>
+    <path d="M 129 112 H 256" marker-end="url(#arrow)"/>
+    <path d="M 304 112 H 431" marker-end="url(#arrow)"/>
+  </g>
+  <g fill="#111" font-family="Times New Roman, Times, serif" text-anchor="middle">
+    <text x="105" y="118" font-size="20"><tspan font-style="italic">q</tspan><tspan font-size="12" baseline-shift="sub">0</tspan></text>
+    <text x="280" y="118" font-size="20"><tspan font-style="italic">q</tspan><tspan font-size="12" baseline-shift="sub">1</tspan></text>
+    <text x="455" y="118" font-size="20"><tspan font-style="italic">q</tspan><tspan font-size="12" baseline-shift="sub">2</tspan></text>
+    <text x="192" y="99" font-size="18"><tspan font-style="italic">e</tspan><tspan font-size="11" baseline-shift="sub">1</tspan></text>
+    <text x="367" y="99" font-size="18"><tspan font-style="italic">e</tspan><tspan font-size="11" baseline-shift="sub">2</tspan></text>
+  </g>
+</svg>

@@ -2,7 +2,7 @@
 import { defineConfig } from 'astro/config';
 import { unified } from '@astrojs/markdown-remark';
 import remarkMath from 'remark-math';
-import rehypeKatex from 'rehype-katex';
+import rehypeMathjax from 'rehype-mathjax/svg';
 
 import preact from "@astrojs/preact";
 import remarkGitDate from './remark-git-date.mjs';
@@ -13,11 +13,11 @@ export default defineConfig({
   markdown: {
     processor: unified({
       remarkPlugins: [remarkGitDate, remarkMath],
-      rehypePlugins: [[rehypeKatex, {
-        trust: true,
-        strict: false,
-        macros: {
-          '\\varowedge': '\\htmlClass{varowedge-symbol}{\\ltimes}',
+      rehypePlugins: [[rehypeMathjax, {
+        tex: {
+          macros: {
+            varowedge: '\\class{varowedge-symbol}{\\ltimes}',
+          },
         },
       }]],
     }),

@@ -69,7 +69,7 @@ const updatedDate = formatDate(frontmatter.updatedDate || frontmatter.pubDate);
   .toc ol { display:flex; flex-direction:column; gap:8px; margin:0; padding:0; list-style:none; }
   .toc li.nested { padding-left:12px; }
   .toc a { display:block; padding:5px 10px; border-left:2px solid transparent; border-radius:7px; color:var(--muted); font-size:.9rem; line-height:1.45; text-decoration:none; transition:color .2s,background .2s,border-color .2s,transform .2s; }
-  .toc :global(.katex) { font-size:1em; }
+  .toc :global(mjx-container) { font-size:1em; }
   .toc a:hover,.toc a:focus-visible { border-left-color:var(--accent); background:var(--wash-hover); color:var(--text); transform:translateX(4px); }
   .article { position:relative; z-index:1; min-width:0; grid-column:1; grid-row:1; }
   .hero-image { position:relative; width:100%; margin-bottom:32px; }
