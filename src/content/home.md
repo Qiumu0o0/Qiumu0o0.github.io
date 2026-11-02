@@ -7,14 +7,15 @@ aaronIntro: "You can visit Aaron's site at"
 aaronName: PrintOnSite
 aaronUrl: https://printonsite.com.au/
 location: China
-githubUrl: https://github.com/
+githubUrl: https://github.com/Qiumu0o0/
 githubLabel: GitHub
-email: zixi.wang.124@foxmail.com
+email: auzacharyw@gmail.com
 emailLabel: Email
+wechatId: _weixinyonghu114514
 scholarUrl: https://scholar.google.com/
 scholarLabel: Scholar
 aboutTitle: About
-aboutLinkLabel: More about me →
+aboutLinkLabel: More About Me →
 educationTitle: Education
 education:
   - name: 西安交通大学
@@ -31,4 +32,4 @@ education:
 
 学生
 
-我是一名西安交通大学的大四学生，目前正在 DES 领域开展学习和研究。<span class="contact-note">Feel free to contact me~</span>
+我是一名西安交通大学的大四学生，目前正在 DES 领域开展学习和研究。Feel free to contact me~ 关于更多信息，**请点击下方 'More About Me'按钮**，这里地方太小写不下0o0
