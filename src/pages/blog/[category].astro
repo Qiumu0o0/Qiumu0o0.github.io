@@ -1,14 +1,10 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BlogPost from '../../components/BlogPost.astro';
+import { frontmatter as blog } from '../../content/blog/index.md';
 
 export function getStaticPaths() {
-  const categories = [
-    { folder: 'AcademicTech', slug: 'academic-tech', label: 'Academic & Tech' },
-    { folder: 'PersonalGrowth', slug: 'personal-growth', label: 'Personal Growth' },
-    { folder: 'Readings', slug: 'readings', label: 'Readings' },
-    { folder: 'Toys', slug: 'toys', label: 'Toys' },
-  ];
+  const categories = blog.categories;
   const postModules = import.meta.glob('../posts/**/*.md', { eager: true });
   return categories.map((category) => ({
     params: { category: category.slug },
@@ -36,7 +32,7 @@ const getReadingMinutes = (content = '') => {
     <header class="blog-heading"><h1>{category.label}</h1><p>Showing {posts.length} posts</p></header>
 
     <nav class="category-nav" aria-label="Blog collections">
-      <a href="/blog/">All</a>
+      <a href="/blog/">{blog.allLabel}</a>
       {categories.map((item) => <a class:list={{ active: item.slug === category.slug }} href={`/blog/${item.slug}/`}>{item.label}</a>)}
     </nav>
 

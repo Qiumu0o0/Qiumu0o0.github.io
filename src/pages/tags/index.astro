@@ -1,10 +1,11 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { frontmatter as tagsContent } from '../../content/blog/tags.md';
 const allPosts = Object.values(import.meta.glob('../posts/**/*.md', { eager: true }));
 const tags = [...new Set(allPosts.flatMap((post: any) =>
   Array.isArray(post.frontmatter.tags) ? post.frontmatter.tags : []
 ))];
-const pageTitle = "标签索引";
+const pageTitle = tagsContent.pageTitle;
 ---
 <BaseLayout pageTitle={pageTitle}>
   <div class="tags">

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BlogPost from '../../components/BlogPost.astro';
+import { frontmatter as tagsContent } from '../../content/blog/tags.md';
 
 export async function getStaticPaths() {
   const allPosts = Object.values(import.meta.glob('../posts/**/*.md', { eager: true }));
@@ -24,7 +25,7 @@ const { tag } = Astro.params;
 const { posts } = Astro.props;
 ---
 <BaseLayout pageTitle={tag}>
-  <p>包含「{tag}」标签的文章</p>
+  <p>{tagsContent.articlePrefix}{tag}{tagsContent.articleSuffix}</p>
   <ul>
     {posts.map((post: any) => <BlogPost url={post.url} title={post.frontmatter.title}/>)}
   </ul>

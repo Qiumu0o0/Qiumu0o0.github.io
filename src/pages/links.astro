@@ -1,65 +1,20 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-
-const friends = [
-  {
-    name: "Axi's Blog",
-    description: '一只可爱小猫',
-    url: 'https://axi404.top',
-    avatar: 'https://axi404.top/avatar/avatar.png',
-  },
-  {
-    name: "JiaXin's Blog",
-    description: '心有山海，静而无边',
-    url: 'https://jiaxin404.top/',
-    avatar: 'https://jiaxin404.top/images/avatar.jpg',
-  },
-  {
-    name: "Jacky's Blog",
-    description: '窗外下雨了',
-    url: 'https://www.jackyhu.top/',
-    avatar: 'https://www.jackyhu.top/avatar.jpg',
-  },
-  {
-    name: '失去理想的獾 の Blog',
-    description: '一只獾的生活隙缝',
-    url: 'https://dbqdss.github.io',
-    avatar: 'https://dbqdss.github.io/img/avatar.jpg',
-  },
-  {
-    name: '空と海',
-    description: '就算活著沒有意義，偶而還是會碰到好事的。',
-    url: 'https://blog.chiyo.uk',
-    avatar: 'https://cravatar.com/avatar/fe2fa5aa94539c33c4db5526046be86a8ac6bd14e4294fabb809fafaa4ed18c8?size=1024',
-  },
-  {
-    name: "assassinlike's homepage",
-    description: '传遍世界',
-    url: 'https://www.assassinlike.top/',
-    avatar: 'https://www.assassinlike.top/figs/face.jpg',
-  },
-];
-
-const siteInfo = [
-  ['Name', "Qiumu's Blog"],
-  ['Desc', 'named by Aaron and Zachary'],
-  ['Link', 'https://qiumu0o0.github.io'],
-  ['Avatar', 'https://qiumu0o0.github.io/avatar.png'],
-];
+import { Content as LinksContent, frontmatter as links } from '../content/links.md';
 ---
 
-<BaseLayout pageTitle="友链 | 秋木的小站">
+<BaseLayout pageTitle={links.pageTitle}>
   <main class="links-page">
     <header class="links-heading">
-      <p class="blog-kicker">Friends</p>
-      <h1>Links</h1>
-      <p>认识有趣的人，也发现更大的世界。</p>
+      <p class="blog-kicker">{links.kicker}</p>
+      <h1>{links.title}</h1>
+      <p>{links.intro}</p>
     </header>
 
     <section aria-labelledby="friends-title">
-      <h2 id="friends-title">友链</h2>
+      <h2 id="friends-title">{links.friendsTitle}</h2>
       <div class="friend-grid">
-        {friends.map((friend) => (
+        {links.friends.map((friend) => (
           <a class="friend-card" href={friend.url} target="_blank" rel="noreferrer">
             <img src={friend.avatar} alt="" loading="lazy" />
             <span><strong>{friend.name}</strong><small>{friend.description}</small></span>
@@ -69,25 +24,20 @@ const siteInfo = [
     </section>
 
     <section class="apply-links" aria-labelledby="apply-title">
-      <h2 id="apply-title">申请友链</h2>
-      <p>请先在你的网站添加本站，然后通过邮件发送或者在评论区留言，提供你的名称、简介、链接与头像。</p>
+      <h2 id="apply-title">{links.applyTitle}</h2>
+      <LinksContent />
       <div class="apply-rules">
-        <h3>申请说明</h3>
-        <ul>
-          <li>申请前请先在你的友链页面添加本站；</li>
-          <li>请确保站点可以正常访问，并保持持续维护；</li>
-          <li>博客内容应符合法律法规；</li>
-          <li>请按照名称、简介、链接、头像的格式提交信息。</li>
-        </ul>
+        <h3>{links.rulesTitle}</h3>
+        <ul>{links.rules.map((rule) => <li>{rule}</li>)}</ul>
       </div>
       <div class="site-info">
-        {siteInfo.map(([label, value]) => (
+        {links.siteInfo.map(({ label, value }) => (
           <button type="button" class="copy-field" data-copy={value} title="点击复制">
             <strong>{label}</strong><span>{value}</span><em>复制</em>
           </button>
         ))}
       </div>
-      <a class="apply-button" href="mailto:zixi.wang.124@foxmail.com?subject=友链申请">发送申请</a>
+      <a class="apply-button" href={`mailto:${links.applyEmail}?subject=友链申请`}>{links.applyButtonLabel}</a>
     </section>
     <section class="comments" aria-label="Comments">
       <script
