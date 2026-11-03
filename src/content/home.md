@@ -30,6 +30,6 @@ education:
     location: 澳大利亚
 ---
 
-学生
+学生 | 欢迎 coffee chat!
 
 我是一名西安交通大学的大四学生，目前正在 DES 领域开展学习和研究。Feel free to contact me~ 关于更多信息，**请点击下方 'More About Me'按钮**，这里地方太小写不下0o0
