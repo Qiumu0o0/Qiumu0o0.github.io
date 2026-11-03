@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300" role="img" aria-labelledby="title desc">
+  <title id="title">Relevant states of the observer of S2</title>
+  <desc id="desc">The observer starts at {q0}, has an a loop, reaches {q1,q2} on b, then {q1} on b. Both latter states reach the empty set on a. The empty set loops on a and b.</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 8 8" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 1 L 7 4 L 0 7" fill="none" stroke="#111" stroke-width="1.25"/>
+    </marker>
+  </defs>
+  <rect width="760" height="300" fill="#fff"/>
+  <g fill="none" stroke="#111" stroke-width="1.5" marker-end="url(#arr)">
+    <path d="M 16 96 H 57"/>
+    <path d="M 88 72 C 52 20 169 20 132 72"/>
+    <path d="M 162 96 H 291"/>
+    <path d="M 429 96 H 552"/>
+    <path d="M 654 84 C 708 39 708 151 654 108"/>
+    <path d="M 374 125 L 431 191"/>
+    <path d="M 580 121 L 490 192"/>
+    <path d="M 443 231 C 409 289 512 289 478 231"/>
+  </g>
+  <g fill="none" stroke="#111" stroke-width="1.5">
+    <ellipse cx="110" cy="96" rx="52" ry="25"/>
+    <ellipse cx="360" cy="96" rx="69" ry="28"/>
+    <ellipse cx="604" cy="96" rx="52" ry="25"/>
+    <ellipse cx="460" cy="210" rx="39" ry="23"/>
+  </g>
+  <g fill="#111" font-family="Cambria Math, Times New Roman, serif" font-size="19" text-anchor="middle">
+    <text x="110" y="102">{q₀}</text><text x="360" y="102">{q₁, q₂}</text>
+    <text x="604" y="102">{q₁}</text><text x="460" y="217">∅</text>
+    <text x="110" y="29">a</text><text x="225" y="82">b</text><text x="490" y="82">b</text>
+    <text x="707" y="52">b</text><text x="391" y="160">a</text><text x="545" y="164">a</text>
+    <text x="460" y="289">a, b</text>
+  </g>
+</svg>

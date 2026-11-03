@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 430" role="img" aria-labelledby="title desc">
+  <title id="title">The original S2 automaton and the left component S2 epsilon</title>
+  <desc id="desc">Two paper-style automata. S2 has q0 initially, observable loops and b branches, and one unobservable loop. The left component replaces original event names by their observation labels or epsilon.</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 8 8" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 1 L 7 4 L 0 7" fill="none" stroke="#111" stroke-width="1.25"/>
+    </marker>
+  </defs>
+  <rect width="760" height="430" fill="#fff"/>
+  <g fill="none" stroke="#111" stroke-width="1.5" marker-end="url(#arr)">
+    <path d="M 380 21 V 73"/>
+    <path d="M 354 100 H 116"/>
+    <path d="M 406 100 H 644"/>
+    <path d="M 364 122 C 322 183 438 183 396 122"/>
+    <path d="M 697 88 C 752 56 752 146 697 112"/>
+    <path d="M 380 236 V 288"/>
+    <path d="M 354 315 H 116"/>
+    <path d="M 406 315 H 644"/>
+    <path d="M 364 337 C 322 398 438 398 396 337"/>
+    <path d="M 697 303 C 752 271 752 361 697 327"/>
+  </g>
+  <g fill="none" stroke="#111" stroke-width="1.5">
+    <circle cx="90" cy="100" r="26"/><circle cx="380" cy="100" r="26"/><circle cx="670" cy="100" r="26"/>
+    <circle cx="90" cy="315" r="26"/><circle cx="380" cy="315" r="26"/><circle cx="670" cy="315" r="26"/>
+  </g>
+  <g fill="#111" font-family="Cambria Math, Times New Roman, serif" font-size="19" text-anchor="middle">
+    <text x="90" y="107">q₂</text><text x="380" y="107">q₀</text><text x="670" y="107">q₁</text>
+    <text x="90" y="322">q₂</text><text x="380" y="322">q₀</text><text x="670" y="322">q₁</text>
+    <text x="235" y="88">e₄(b)</text><text x="525" y="88">e₃(b)</text><text x="718" y="55">e₅(b)</text>
+    <text x="380" y="186">e₁(a)</text><text x="380" y="207">e₂(ϵ)</text>
+    <text x="235" y="303">b</text><text x="525" y="303">b</text><text x="718" y="270">b</text>
+    <text x="380" y="402">a</text><text x="380" y="423">ε</text>
+  </g>
+  <g fill="#111" font-family="Cambria Math, Times New Roman, serif" font-size="17" text-anchor="start">
+    <text x="16" y="34">(a) 𝒮₂</text>
+    <text x="16" y="249">(b) 𝒮₂,ε</text>
+  </g>
+</svg>
