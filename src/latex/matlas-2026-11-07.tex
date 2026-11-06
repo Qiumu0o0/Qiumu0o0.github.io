@@ -1,0 +1,102 @@
+\documentclass[11pt,a4paper]{ctexart}
+\usepackage[margin=2.35cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{hyperref}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  urlcolor=blue!55!black,
+  pdftitle={Matlas},
+  pdfauthor={秋木}
+}
+\setlength{\parindent}{2em}
+\setlength{\parskip}{0.35em}
+\setlist[itemize,enumerate]{topsep=0.3em,itemsep=0.15em}
+
+\title{Matlas}
+\author{秋木}
+\date{2026 年 11 月 7 日}
+
+\begin{document}
+\maketitle
+
+\begin{itemize}
+  \item \textbf{Matlas}：面向\textbf{数学陈述}的\textbf{语义检索}，为\textbf{非形式推理}提供\textbf{跨领域定理线索}。
+\end{itemize}
+
+解析这句话中的几个概念。首先，从这句话来说，Matlas 像是一个搜索引擎。那么，它搜索的结果是什么呢？和搜索引擎作比较，当用户输入：
+
+\begin{quote}
+对于一个有限自动机，什么条件能够保证两个状态不可区分？
+\end{quote}
+
+对于普通搜索引擎，可能返回包含“有限自动机”“状态不可区分”等关键词的\textbf{网页或论文}；Matlas 更希望返回类似这样的\textbf{数学陈述}：
+
+\begin{quote}
+设 DFA 为 $A=(Q,\Sigma,\delta,q_0,F)$，$\delta^{\ast}$ 是 $\delta$ 在单词上的扩展。两个状态 $p,q\in Q$ 等价，当且仅当
+\[
+p\sim_A q
+\quad\Longleftrightarrow\quad
+\forall w\in\Sigma^{\ast},\;
+\bigl(\delta^{\ast}(p,w)\in F
+\iff
+\delta^{\ast}(q,w)\in F\bigr).
+\]
+\end{quote}
+
+以及与它语义相关的：
+
+\begin{itemize}
+  \item Myhill--Nerode 等价关系的定义；
+  \item DFA 最小化定理；
+  \item 可区分状态与区分词的有关引理；
+  \item 这些定理所在的论文或教材；
+  \item 相关陈述使用了哪些前置定义和定理。
+\end{itemize}
+
+更直观地来说，用户向 Matlas 输入类似于上例中的内容（即数学陈述），Matlas 返回\textbf{可能有助于回答问题的已有数学结果}。例如，研究 Agent 正在证明命题 $P$。Matlas 可能返回：
+
+\begin{enumerate}
+  \item 一个能直接推出 $P$ 的已知定理；
+  \item 一个可以用于证明 $P$ 的中间引理；
+  \item 一个表明 $P$ 需要增加假设的反例；
+  \item 一个来自其他数学领域、但结构相似的定理；
+  \item 一个已经研究过 $P$ 的更一般版本的文献。
+\end{enumerate}
+
+\bigskip\hrule\bigskip
+
+一个重要的问题是：\textbf{那么用 Matlas 来搜索，和把相关提示词输入进基模来进行搜索有什么区别吗？（结果上）}
+
+\subsection*{那为什么基模不能模仿 Matlas 的行为呢？或者更直接一点，直接调用 Matlas？}
+
+基模可以模仿 Matlas 的行为逻辑，但是本质上，不调用外部工具的基模只是一段模型参数，人类和基模对话，本质上就是输入经过模型参数的映射成为输出。
+
+当然，在配置了合适的 API 之后，也可以让基模调用 Matlas，那么此时回答的质量体现的就主要是 Matlas 的能力了。
+
+现在回到模型训练的本质上来做一个比较：模型训练就是把数据输入经过训练的映射，输出一个模型参数。所以，如果把 Matlas 比喻成一个有目录的图书馆，基模就是一个读过这个图书馆中所有书籍的人。
+
+\subsection*{在实际测试中，基模和 Matlas 的能力比较如何？}
+
+Matlas 的论文中目前没有给出与\textbf{纯基模}的能力测试。Matlas 的论文主要介绍了其数据库和检索方法，并给出使用案例。
+
+\subsection*{那么这样看来，Matlas 这种工具实际上是提升了基模的能力（如果允许基模调用），那么基模公司是否付费使用 Matlas 工具？}
+
+目前并没有证据表明 OpenAI、Google 和 Anthropic 公司正在付费使用 Matlas。但是，如果未来基模公司决定把 Matlas 内置为官方工具，那么就需要与 Matlas 团队签订相关商业文件。
+
+\subsection*{那么，有没有其他类似工具被基模公司购买的案例？}
+
+有类似案例，但更常见的形式不是“收购整个工具”，而是\textbf{内容授权}或\textbf{工具接入}：
+
+\begin{itemize}
+  \item OpenAI 与 Financial Times、News Corp 签订授权协议，让 ChatGPT 使用其当前及历史内容；
+  \item Google 通过 Reddit Data API 获得实时、结构化的数据访问；
+  \item Claude 接入 Wiley Scholar Gateway，以检索经过同行评审的科研内容；
+  \item ChatGPT 和 Claude 都可以接入 Wolfram，让基模调用 Wolfram|Alpha 和 Wolfram Language 进行可靠计算与知识查询。
+\end{itemize}
+
+这些案例说明，基模公司确实会通过外部数据库或专业工具增强模型能力。不过，大部分协议只公开合作关系，不公开具体费用，因此不能据此确认基模公司向工具方支付了多少费用。Matlas 目前也没有公开类似的商业合作。
+
+\end{document}
