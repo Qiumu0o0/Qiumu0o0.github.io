@@ -3,6 +3,7 @@
 \usepackage{amsmath,amssymb}
 \usepackage{enumitem}
 \usepackage{xcolor}
+\usepackage[most]{tcolorbox}
 \usepackage{hyperref}
 
 \hypersetup{
@@ -13,8 +14,30 @@
   pdfauthor={秋木}
 }
 \setlength{\parindent}{2em}
-\setlength{\parskip}{0.35em}
+\setlength{\parskip}{0.2em}
 \setlist[itemize,enumerate]{topsep=0.3em,itemsep=0.15em}
+
+\newtcolorbox{statementbox}[1]{
+  enhanced,
+  breakable,
+  colback=blue!3,
+  colframe=blue!35!black,
+  boxrule=0.7pt,
+  arc=2mm,
+  left=2.5mm,
+  right=2.5mm,
+  top=1.5mm,
+  bottom=1.5mm,
+  before skip=0.7em,
+  after skip=0.7em,
+  fonttitle=\bfseries,
+  title={#1}
+}
+
+\newcommand{\question}[1]{%
+  \par\smallskip
+  \noindent{\large\bfseries #1}\par
+}
 
 \title{Matlas}
 \author{秋木}
@@ -29,13 +52,13 @@
 
 解析这句话中的几个概念。首先，从这句话来说，Matlas 像是一个搜索引擎。那么，它搜索的结果是什么呢？和搜索引擎作比较，当用户输入：
 
-\begin{quote}
+\begin{statementbox}{输入问题}
 对于一个有限自动机，什么条件能够保证两个状态不可区分？
-\end{quote}
+\end{statementbox}
 
 对于普通搜索引擎，可能返回包含“有限自动机”“状态不可区分”等关键词的\textbf{网页或论文}；Matlas 更希望返回类似这样的\textbf{数学陈述}：
 
-\begin{quote}
+\begin{statementbox}{数学陈述示例}
 设 DFA 为 $A=(Q,\Sigma,\delta,q_0,F)$，$\delta^{\ast}$ 是 $\delta$ 在单词上的扩展。两个状态 $p,q\in Q$ 等价，当且仅当
 \[
 p\sim_A q
@@ -45,7 +68,7 @@ p\sim_A q
 \iff
 \delta^{\ast}(q,w)\in F\bigr).
 \]
-\end{quote}
+\end{statementbox}
 
 以及与它语义相关的：
 
@@ -69,9 +92,15 @@ p\sim_A q
 
 \bigskip\hrule\bigskip
 
-一个重要的问题是：\textbf{那么用 Matlas 来搜索，和把相关提示词输入进基模来进行搜索有什么区别吗？（结果上）}
+下面是我个人在学习过程中的一些问题：
 
-\subsection*{那为什么基模不能模仿 Matlas 的行为呢？或者更直接一点，直接调用 Matlas？}
+\question{那么用 matlas 来搜索，和把相关提示词输入进基模来进行搜索有什么区别吗？}
+
+主要区别是 Matlas 和基模的行为逻辑不同。基模可以看作是一个模型参数，用户的输入被模型参数映射为输出。而 Matlas 的行为逻辑是：用户输入被 Embedding 模型转化为向量，然后另有一个 Matlas 的数据库，其中的数据都有对应的向量表示，最后通过比较输入与数据库中数据向量的余弦相似度来进行排序，输出数据库中的陈述。
+
+\question{那么用 Matlas 来搜索，和把相关提示词输入进基模来进行搜索有什么区别吗？（结果上）}
+
+\question{那为什么基模不能模仿 Matlas 的行为呢？或者更直接一点，直接调用 Matlas？}
 
 基模可以模仿 Matlas 的行为逻辑，但是本质上，不调用外部工具的基模只是一段模型参数，人类和基模对话，本质上就是输入经过模型参数的映射成为输出。
 
@@ -79,15 +108,15 @@ p\sim_A q
 
 现在回到模型训练的本质上来做一个比较：模型训练就是把数据输入经过训练的映射，输出一个模型参数。所以，如果把 Matlas 比喻成一个有目录的图书馆，基模就是一个读过这个图书馆中所有书籍的人。
 
-\subsection*{在实际测试中，基模和 Matlas 的能力比较如何？}
+\question{在实际测试中，基模和 Matlas 的能力比较如何？}
 
 Matlas 的论文中目前没有给出与\textbf{纯基模}的能力测试。Matlas 的论文主要介绍了其数据库和检索方法，并给出使用案例。
 
-\subsection*{那么这样看来，Matlas 这种工具实际上是提升了基模的能力（如果允许基模调用），那么基模公司是否付费使用 Matlas 工具？}
+\question{那么这样看来，Matlas 这种工具实际上是提升了基模的能力（如果允许基模调用），那么基模公司是否付费使用 Matlas 工具？}
 
 目前并没有证据表明 OpenAI、Google 和 Anthropic 公司正在付费使用 Matlas。但是，如果未来基模公司决定把 Matlas 内置为官方工具，那么就需要与 Matlas 团队签订相关商业文件。
 
-\subsection*{那么，有没有其他类似工具被基模公司购买的案例？}
+\question{那么，有没有其他类似工具被基模公司购买的案例？}
 
 有类似案例，但更常见的形式不是“收购整个工具”，而是\textbf{内容授权}或\textbf{工具接入}：
 
