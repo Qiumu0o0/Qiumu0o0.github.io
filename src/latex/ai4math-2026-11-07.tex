@@ -10,7 +10,7 @@
   colorlinks=true,
   linkcolor=black,
   urlcolor=blue!55!black,
-  pdftitle={Matlas},
+  pdftitle={AI4Math 工具概览：Matlas、Rethlas、Archon 与 Danus},
   pdfauthor={秋木}
 }
 \setlength{\parindent}{2em}
@@ -39,12 +39,14 @@
   \noindent{\large\bfseries #1}\par
 }
 
-\title{Matlas}
+\title{AI4Math 工具概览\\[0.35em]\large Matlas、Rethlas、Archon 与 Danus}
 \author{秋木}
 \date{2026 年 11 月 7 日}
 
 \begin{document}
 \maketitle
+
+\section*{Matlas}
 
 \begin{itemize}
   \item \textbf{Matlas}：面向\textbf{数学陈述}的\textbf{语义检索}，为\textbf{非形式推理}提供\textbf{跨领域定理线索}。
@@ -98,8 +100,6 @@ p\sim_A q
 
 主要区别是 Matlas 和基模的行为逻辑不同。基模可以看作是一个模型参数，用户的输入被模型参数映射为输出。而 Matlas 的行为逻辑是：用户输入被 Embedding 模型转化为向量，然后另有一个 Matlas 的数据库，其中的数据都有对应的向量表示，最后通过比较输入与数据库中数据向量的余弦相似度来进行排序，输出数据库中的陈述。
 
-\question{那么用 Matlas 来搜索，和把相关提示词输入进基模来进行搜索有什么区别吗？（结果上）}
-
 \question{那为什么基模不能模仿 Matlas 的行为呢？或者更直接一点，直接调用 Matlas？}
 
 基模可以模仿 Matlas 的行为逻辑，但是本质上，不调用外部工具的基模只是一段模型参数，人类和基模对话，本质上就是输入经过模型参数的映射成为输出。
@@ -129,7 +129,39 @@ Matlas 的论文中目前没有给出与\textbf{纯基模}的能力测试。Matl
 
 这些案例说明，基模公司确实会通过外部数据库或专业工具增强模型能力。不过，大部分协议只公开合作关系，不公开具体费用，因此不能据此确认基模公司向工具方支付了多少费用。Matlas 目前也没有公开类似的商业合作。
 
+\section*{Rethlas}
+
+\begin{itemize}
+  \item \textbf{Rethlas}：自然语言数学研究 Agent，借助 Matlas 探索路线并生成候选证明。
+\end{itemize}
+
+从这句描述来看，Rethlas 是一个生成证明的工具，而且存在形式是像 Codex 一样的 Agent。它由两个 Agent 组成：生成 Agent 和验证 Agent。
+
+生成 Agent 读取问题、搜索文献、探索证明思路并生成自然语言的证明；验证 Agent 检查证明逻辑、证明中引用的定理，并把检查结果反馈给生成 Agent（如果发现错误）。
+
+但是值得注意的是，Rethlas 仅生成自然语言证明，而不是 Lean Proof。
+
+\question{多 Agent 相比单 Agent 在能力上有什么提升？}
+
+最重要的提升就是\textbf{并行工作}的能力，即多 Agent 可以让整个系统同时执行相互独立的工作。此外，如果把所有工作都集中在一个 Agent 中，会\textbf{占用大量的上下文}。以及在验证时，让 Agent 验证自己的思路时，不容易发现其中的疏漏。
+
+\section*{Archon}
+
+\begin{itemize}
+  \item \textbf{Archon}：形式化 Agent，借助 LeanSearch 将非形式论证转成 Lean 4 项目。
+\end{itemize}
+
+\section*{Danus}
+
+\begin{itemize}
+  \item \textbf{Danus}：以\textbf{事实图}协调多个推理 worker，并让\textbf{共享记忆受验证器约束}。
+\end{itemize}
+
+所谓事实图，就是用图的结构保存数学事实，以及不同数学事实之间的依赖关系。对于一个新写入的证明或者事实，需要经过验证器的检验之后，才能在共享记忆（即事实图）中增添新的点和边。
+
+不过值得注意的是，Danus 目前使用的还是 LLM 验证器，而非形式化验证器。
+
 \bigskip
-\noindent\small\textbf{博客原文：}\url{https://qiumu0o0.github.io/posts/AcademicTech/2026.11.07Matlas/}
+\noindent\small\textbf{博客原文：}\url{https://qiumu0o0.github.io/posts/AcademicTech/2026.11.07AI4math/}
 
 \end{document}
