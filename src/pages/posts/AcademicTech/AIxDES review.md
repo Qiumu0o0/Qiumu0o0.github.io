@@ -1,3 +1,16 @@
+---
+layout: ../../../layouts/MarkdownPostLayout.astro
+title: 'AI × DES Review'
+pubDate: 2026-11-16
+updatedDate: 2026-11-16
+description: '从监督控制理论与离散事件系统建模出发，梳理 AI 与 DES 研究的基础概念。'
+author: '秋木'
+image:
+    url: '/Crimson Rosella.png'
+    alt: ''
+tags: [AI, DES, review]
+---
+
 ## SCT
 
 ### History

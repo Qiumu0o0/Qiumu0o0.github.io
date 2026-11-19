@@ -1,3 +1,16 @@
+---
+layout: ../../../layouts/MarkdownPostLayout.astro
+title: 'How to Bake Pi'
+pubDate: 2026-11-18
+updatedDate: 2026-11-18
+description: '关于数学是什么、数学研究如何展开，以及《How to Bake Pi》的阅读笔记。'
+author: '秋木'
+image:
+    url: '/Crimson Rosella.png'
+    alt: ''
+tags: [mathematics, reading]
+---
+
 ## Prologue
 
 Math is not either right or wrong, something wrong can be true in another environment.

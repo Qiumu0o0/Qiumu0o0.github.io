@@ -1,3 +1,16 @@
+---
+layout: ../../../layouts/MarkdownPostLayout.astro
+title: 'From LLM Suggestions to Lean Proofs: Verified Redundant Constraints for MiniZinc'
+pubDate: 2026-11-17
+updatedDate: 2026-11-17
+description: '关于利用 LLM 生成 MiniZinc 冗余约束，并通过 Lean 4 验证其正确性的论文笔记。'
+author: '秋木'
+image:
+    url: '/Crimson Rosella.png'
+    alt: ''
+tags: [LLM, Lean, MiniZinc, reading]
+---
+
 ## 大意
 
 这篇文章是 Danzinger 和 Musliu 在 CP 2026 发表的研究，核心是：
