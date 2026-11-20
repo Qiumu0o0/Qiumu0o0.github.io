@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="650" viewBox="0 0 1100 650" role="img" aria-labelledby="title desc">
+  <title id="title">路由器连接两栋楼中的不同网络</title>
+  <desc id="desc">楼一的三台电脑连接交换机一，楼二的一台电脑连接交换机二，两台交换机通过光纤连接中央路由器</desc>
+  <defs>
+    <linearGradient id="screen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eaf2ff"/>
+      <stop offset="1" stop-color="#d7e5fa"/>
+    </linearGradient>
+    <linearGradient id="switchBody" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5c7390"/>
+      <stop offset="1" stop-color="#40556f"/>
+    </linearGradient>
+    <linearGradient id="routerBody" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#db805e"/>
+      <stop offset="1" stop-color="#b95635"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1100" height="650" rx="22" fill="#f8fafc"/>
+  <rect x="30" y="35" width="420" height="575" rx="24" fill="#eef4fb" stroke="#c9d6e5" stroke-width="3" stroke-dasharray="10 9"/>
+  <rect x="650" y="35" width="420" height="575" rx="24" fill="#eef4fb" stroke="#c9d6e5" stroke-width="3" stroke-dasharray="10 9"/>
+  <text x="240" y="78" fill="#40556f" font-family="sans-serif" font-size="28" font-weight="600" text-anchor="middle">楼 1 · 网络 1</text>
+  <text x="860" y="78" fill="#40556f" font-family="sans-serif" font-size="28" font-weight="600" text-anchor="middle">楼 2 · 网络 2</text>
+
+  <g fill="none" stroke="#40556f" stroke-width="7" stroke-linecap="round">
+    <path d="M240 180 V310"/>
+    <path d="M130 505 L210 390"/>
+    <path d="M350 505 L270 390"/>
+    <path d="M860 180 V310"/>
+  </g>
+
+  <path d="M350 350 H485" fill="none" stroke="#d06b45" stroke-width="10" stroke-linecap="round"/>
+  <path d="M615 350 H750" fill="none" stroke="#d06b45" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="350" cy="350" r="9" fill="#f8fafc" stroke="#d06b45" stroke-width="6"/>
+  <circle cx="485" cy="350" r="9" fill="#f8fafc" stroke="#d06b45" stroke-width="6"/>
+  <circle cx="615" cy="350" r="9" fill="#f8fafc" stroke="#d06b45" stroke-width="6"/>
+  <circle cx="750" cy="350" r="9" fill="#f8fafc" stroke="#d06b45" stroke-width="6"/>
+  <text x="418" y="329" fill="#a94e2d" font-family="sans-serif" font-size="21" font-weight="600" text-anchor="middle">光纤</text>
+  <text x="682" y="329" fill="#a94e2d" font-family="sans-serif" font-size="21" font-weight="600" text-anchor="middle">光纤</text>
+
+  <g transform="translate(150 100)">
+    <rect width="180" height="108" rx="12" fill="url(#screen)" stroke="#40556f" stroke-width="6"/>
+    <rect x="15" y="15" width="150" height="72" rx="5" fill="#ffffff" opacity="0.72"/>
+    <path d="M70 110 V137 M110 110 V137 M48 139 H132" fill="none" stroke="#40556f" stroke-width="7" stroke-linecap="round"/>
+    <text x="90" y="56" fill="#293b53" font-family="sans-serif" font-size="29" font-weight="600" text-anchor="middle">PC A</text>
+  </g>
+  <g transform="translate(50 470)">
+    <rect width="160" height="98" rx="12" fill="url(#screen)" stroke="#40556f" stroke-width="6"/>
+    <rect x="14" y="14" width="132" height="64" rx="5" fill="#ffffff" opacity="0.72"/>
+    <path d="M61 100 V124 M99 100 V124 M41 126 H119" fill="none" stroke="#40556f" stroke-width="7" stroke-linecap="round"/>
+    <text x="80" y="52" fill="#293b53" font-family="sans-serif" font-size="27" font-weight="600" text-anchor="middle">PC B</text>
+  </g>
+  <g transform="translate(270 470)">
+    <rect width="160" height="98" rx="12" fill="url(#screen)" stroke="#40556f" stroke-width="6"/>
+    <rect x="14" y="14" width="132" height="64" rx="5" fill="#ffffff" opacity="0.72"/>
+    <path d="M61 100 V124 M99 100 V124 M41 126 H119" fill="none" stroke="#40556f" stroke-width="7" stroke-linecap="round"/>
+    <text x="80" y="52" fill="#293b53" font-family="sans-serif" font-size="27" font-weight="600" text-anchor="middle">PC C</text>
+  </g>
+  <g transform="translate(770 100)">
+    <rect width="180" height="108" rx="12" fill="url(#screen)" stroke="#40556f" stroke-width="6"/>
+    <rect x="15" y="15" width="150" height="72" rx="5" fill="#ffffff" opacity="0.72"/>
+    <path d="M70 110 V137 M110 110 V137 M48 139 H132" fill="none" stroke="#40556f" stroke-width="7" stroke-linecap="round"/>
+    <text x="90" y="56" fill="#293b53" font-family="sans-serif" font-size="29" font-weight="600" text-anchor="middle">PC D</text>
+  </g>
+
+  <g transform="translate(130 310)">
+    <rect width="220" height="82" rx="15" fill="url(#switchBody)" stroke="#293b53" stroke-width="6"/>
+    <text x="110" y="35" fill="#ffffff" font-family="sans-serif" font-size="25" font-weight="600" text-anchor="middle">Switch 1</text>
+    <g fill="#b9f0d0" stroke="#203247" stroke-width="2">
+      <rect x="50" y="50" width="25" height="16" rx="3"/><rect x="84" y="50" width="25" height="16" rx="3"/>
+      <rect x="118" y="50" width="25" height="16" rx="3"/><rect x="152" y="50" width="25" height="16" rx="3"/>
+    </g>
+  </g>
+  <g transform="translate(750 310)">
+    <rect width="220" height="82" rx="15" fill="url(#switchBody)" stroke="#293b53" stroke-width="6"/>
+    <text x="110" y="35" fill="#ffffff" font-family="sans-serif" font-size="25" font-weight="600" text-anchor="middle">Switch 2</text>
+    <g fill="#b9f0d0" stroke="#203247" stroke-width="2">
+      <rect x="50" y="50" width="25" height="16" rx="3"/><rect x="84" y="50" width="25" height="16" rx="3"/>
+      <rect x="118" y="50" width="25" height="16" rx="3"/><rect x="152" y="50" width="25" height="16" rx="3"/>
+    </g>
+  </g>
+
+  <g transform="translate(485 298)">
+    <rect width="130" height="104" rx="22" fill="url(#routerBody)" stroke="#8e3f28" stroke-width="6"/>
+    <text x="65" y="48" fill="#ffffff" font-family="sans-serif" font-size="26" font-weight="600" text-anchor="middle">Router</text>
+    <path d="M35 72 H95 M44 82 H86" fill="none" stroke="#ffe1d6" stroke-width="5" stroke-linecap="round"/>
+  </g>
+</svg>

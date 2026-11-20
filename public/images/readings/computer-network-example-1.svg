@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="320" viewBox="0 0 900 320" role="img" aria-labelledby="title desc">
+  <title id="title">两台电脑通过网线直接连接</title>
+  <desc id="desc">PC1 和 PC2 之间由一根标注为网线的连线相连</desc>
+  <defs>
+    <linearGradient id="screen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eaf2ff"/>
+      <stop offset="1" stop-color="#d7e5fa"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="320" rx="22" fill="#f8fafc"/>
+
+  <g fill="none" stroke="#40556f" stroke-width="7" stroke-linecap="round">
+    <path d="M270 153 H630"/>
+  </g>
+  <rect x="408" y="115" width="84" height="38" rx="19" fill="#f8fafc"/>
+  <text x="450" y="142" fill="#40556f" font-family="sans-serif" font-size="24" text-anchor="middle">网线</text>
+
+  <g transform="translate(90 72)">
+    <rect x="0" y="0" width="190" height="126" rx="12" fill="url(#screen)" stroke="#40556f" stroke-width="6"/>
+    <rect x="16" y="16" width="158" height="88" rx="5" fill="#ffffff" opacity="0.72"/>
+    <path d="M75 128 V164 M115 128 V164 M50 166 H140" fill="none" stroke="#40556f" stroke-width="7" stroke-linecap="round"/>
+    <text x="95" y="62" fill="#293b53" font-family="sans-serif" font-size="32" font-weight="600" text-anchor="middle">PC1</text>
+  </g>
+
+  <g transform="translate(620 72)">
+    <rect x="0" y="0" width="190" height="126" rx="12" fill="url(#screen)" stroke="#40556f" stroke-width="6"/>
+    <rect x="16" y="16" width="158" height="88" rx="5" fill="#ffffff" opacity="0.72"/>
+    <path d="M75 128 V164 M115 128 V164 M50 166 H140" fill="none" stroke="#40556f" stroke-width="7" stroke-linecap="round"/>
+    <text x="95" y="62" fill="#293b53" font-family="sans-serif" font-size="32" font-weight="600" text-anchor="middle">PC2</text>
+  </g>
+</svg>

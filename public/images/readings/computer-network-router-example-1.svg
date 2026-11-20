@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="600" viewBox="0 0 1000 600" role="img" aria-labelledby="title desc">
+  <title id="title">两个寝室的交换机通过网线连接</title>
+  <desc id="desc">寝室一的 PC A、PC B 和 PC D 连接交换机一，寝室二的 PC C 连接交换机二，两台交换机之间通过网线连接</desc>
+  <defs>
+    <linearGradient id="screen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eaf2ff"/>
+      <stop offset="1" stop-color="#d7e5fa"/>
+    </linearGradient>
+    <linearGradient id="switchBody" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5c7390"/>
+      <stop offset="1" stop-color="#40556f"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1000" height="600" rx="22" fill="#f8fafc"/>
+  <rect x="35" y="35" width="425" height="530" rx="24" fill="#eef4fb" stroke="#c9d6e5" stroke-width="3" stroke-dasharray="10 9"/>
+  <rect x="540" y="35" width="425" height="530" rx="24" fill="#eef4fb" stroke="#c9d6e5" stroke-width="3" stroke-dasharray="10 9"/>
+  <text x="247" y="78" fill="#40556f" font-family="sans-serif" font-size="27" font-weight="600" text-anchor="middle">寝室 1</text>
+  <text x="752" y="78" fill="#40556f" font-family="sans-serif" font-size="27" font-weight="600" text-anchor="middle">寝室 2</text>
+
+  <g fill="none" stroke="#40556f" stroke-width="7" stroke-linecap="round">
+    <path d="M247 180 V270"/>
+    <path d="M135 440 L220 350"/>
+    <path d="M360 440 L275 350"/>
+    <path d="M752 180 V270"/>
+  </g>
+
+  <path d="M357 310 H642" fill="none" stroke="#d06b45" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="357" cy="310" r="10" fill="#f8fafc" stroke="#d06b45" stroke-width="6"/>
+  <circle cx="642" cy="310" r="10" fill="#f8fafc" stroke="#d06b45" stroke-width="6"/>
+  <rect x="465" y="260" width="70" height="38" rx="19" fill="#f8fafc" stroke="#e0b39f" stroke-width="2"/>
+  <text x="500" y="287" fill="#a94e2d" font-family="sans-serif" font-size="20" font-weight="600" text-anchor="middle">网线</text>
+
+  <g transform="translate(157 100)">
+    <rect width="180" height="108" rx="12" fill="url(#screen)" stroke="#40556f" stroke-width="6"/>
+    <rect x="15" y="15" width="150" height="72" rx="5" fill="#ffffff" opacity="0.72"/>
+    <path d="M70 110 V137 M110 110 V137 M48 139 H132" fill="none" stroke="#40556f" stroke-width="7" stroke-linecap="round"/>
+    <text x="90" y="56" fill="#293b53" font-family="sans-serif" font-size="29" font-weight="600" text-anchor="middle">PC A</text>
+  </g>
+  <g transform="translate(55 405)">
+    <rect width="160" height="98" rx="12" fill="url(#screen)" stroke="#40556f" stroke-width="6"/>
+    <rect x="14" y="14" width="132" height="64" rx="5" fill="#ffffff" opacity="0.72"/>
+    <path d="M61 100 V124 M99 100 V124 M41 126 H119" fill="none" stroke="#40556f" stroke-width="7" stroke-linecap="round"/>
+    <text x="80" y="52" fill="#293b53" font-family="sans-serif" font-size="27" font-weight="600" text-anchor="middle">PC B</text>
+  </g>
+  <g transform="translate(280 405)">
+    <rect width="160" height="98" rx="12" fill="url(#screen)" stroke="#40556f" stroke-width="6"/>
+    <rect x="14" y="14" width="132" height="64" rx="5" fill="#ffffff" opacity="0.72"/>
+    <path d="M61 100 V124 M99 100 V124 M41 126 H119" fill="none" stroke="#40556f" stroke-width="7" stroke-linecap="round"/>
+    <text x="80" y="52" fill="#293b53" font-family="sans-serif" font-size="27" font-weight="600" text-anchor="middle">PC D</text>
+  </g>
+  <g transform="translate(662 100)">
+    <rect width="180" height="108" rx="12" fill="url(#screen)" stroke="#40556f" stroke-width="6"/>
+    <rect x="15" y="15" width="150" height="72" rx="5" fill="#ffffff" opacity="0.72"/>
+    <path d="M70 110 V137 M110 110 V137 M48 139 H132" fill="none" stroke="#40556f" stroke-width="7" stroke-linecap="round"/>
+    <text x="90" y="56" fill="#293b53" font-family="sans-serif" font-size="29" font-weight="600" text-anchor="middle">PC C</text>
+  </g>
+
+  <g transform="translate(137 270)">
+    <rect width="220" height="82" rx="15" fill="url(#switchBody)" stroke="#293b53" stroke-width="6"/>
+    <text x="110" y="35" fill="#ffffff" font-family="sans-serif" font-size="25" font-weight="600" text-anchor="middle">Switch 1</text>
+    <g fill="#b9f0d0" stroke="#203247" stroke-width="2">
+      <rect x="50" y="50" width="25" height="16" rx="3"/><rect x="84" y="50" width="25" height="16" rx="3"/>
+      <rect x="118" y="50" width="25" height="16" rx="3"/><rect x="152" y="50" width="25" height="16" rx="3"/>
+    </g>
+  </g>
+  <g transform="translate(642 270)">
+    <rect width="220" height="82" rx="15" fill="url(#switchBody)" stroke="#293b53" stroke-width="6"/>
+    <text x="110" y="35" fill="#ffffff" font-family="sans-serif" font-size="25" font-weight="600" text-anchor="middle">Switch 2</text>
+    <g fill="#b9f0d0" stroke="#203247" stroke-width="2">
+      <rect x="50" y="50" width="25" height="16" rx="3"/><rect x="84" y="50" width="25" height="16" rx="3"/>
+      <rect x="118" y="50" width="25" height="16" rx="3"/><rect x="152" y="50" width="25" height="16" rx="3"/>
+    </g>
+  </g>
+</svg>
