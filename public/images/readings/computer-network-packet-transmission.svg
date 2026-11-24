@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="820" viewBox="0 0 1400 820" role="img" aria-labelledby="title desc">
+  <title id="title">数据包从电脑 A 传输到电脑 B 的完整路径</title>
+  <desc id="desc">微信 A 将图片交给操作系统封装成数据包，数据经交换机 A、默认网关路由器和交换机 B，到达电脑 B 的操作系统，再根据目标端口交给微信 B</desc>
+  <defs>
+    <linearGradient id="device" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#edf4ff"/>
+      <stop offset="1" stop-color="#d9e7fa"/>
+    </linearGradient>
+    <linearGradient id="switchBody" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#607994"/>
+      <stop offset="1" stop-color="#40556f"/>
+    </linearGradient>
+    <linearGradient id="routerBody" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#dd8260"/>
+      <stop offset="1" stop-color="#b95635"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#40556f"/>
+    </marker>
+    <marker id="orangeArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#c7603e"/>
+    </marker>
+  </defs>
+
+  <rect width="1400" height="820" rx="24" fill="#f8fafc"/>
+  <text x="700" y="48" fill="#293b53" font-family="sans-serif" font-size="30" font-weight="700" text-anchor="middle">一次完整的数据包传输</text>
+
+  <g transform="translate(350 75)">
+    <rect width="700" height="130" rx="18" fill="#ffffff" stroke="#bdcbdc" stroke-width="3"/>
+    <rect width="470" height="130" rx="18" fill="#e8f1fc"/>
+    <path d="M470 0 V130" stroke="#bdcbdc" stroke-width="3"/>
+    <text x="235" y="30" fill="#293b53" font-family="sans-serif" font-size="23" font-weight="700" text-anchor="middle">Header</text>
+    <text x="235" y="65" fill="#40556f" font-family="monospace" font-size="21" text-anchor="middle">SIP · DIP · SP · DP · Protocol</text>
+    <text x="235" y="99" fill="#65758a" font-family="sans-serif" font-size="18" text-anchor="middle">源/目标 IP 与端口在端到端传输中保持不变</text>
+    <text x="585" y="45" fill="#293b53" font-family="sans-serif" font-size="23" font-weight="700" text-anchor="middle">Payload</text>
+    <text x="585" y="84" fill="#40556f" font-family="sans-serif" font-size="22" text-anchor="middle">图片数据</text>
+  </g>
+
+  <rect x="25" y="245" width="535" height="510" rx="25" fill="#eef4fb" stroke="#c9d6e5" stroke-width="3" stroke-dasharray="11 9"/>
+  <rect x="840" y="245" width="535" height="510" rx="25" fill="#eef4fb" stroke="#c9d6e5" stroke-width="3" stroke-dasharray="11 9"/>
+  <text x="292" y="285" fill="#40556f" font-family="sans-serif" font-size="25" font-weight="700" text-anchor="middle">网络 A</text>
+  <text x="1108" y="285" fill="#40556f" font-family="sans-serif" font-size="25" font-weight="700" text-anchor="middle">网络 B</text>
+
+  <g fill="none" stroke="#40556f" stroke-width="7" stroke-linecap="round" marker-end="url(#arrow)">
+    <path d="M190 475 H210"/>
+    <path d="M375 475 H410"/>
+    <path d="M540 475 H600"/>
+    <path d="M800 475 H860"/>
+    <path d="M990 475 H1025"/>
+    <path d="M1190 475 H1210"/>
+  </g>
+
+  <g font-family="sans-serif" text-anchor="middle">
+    <rect x="112" y="315" width="176" height="40" rx="20" fill="#ffffff" stroke="#c9d6e5" stroke-width="2"/>
+    <rect x="472" y="315" width="196" height="40" rx="20" fill="#ffffff" stroke="#c9d6e5" stroke-width="2"/>
+    <rect x="732" y="315" width="196" height="40" rx="20" fill="#ffffff" stroke="#c9d6e5" stroke-width="2"/>
+    <rect x="1112" y="315" width="176" height="40" rx="20" fill="#ffffff" stroke="#c9d6e5" stroke-width="2"/>
+    <text x="200" y="341" fill="#40556f" font-size="17">① 交给操作系统</text>
+    <text x="570" y="341" fill="#40556f" font-size="17">③ 目标 MAC：网关</text>
+    <text x="830" y="341" fill="#40556f" font-size="17">⑤ 目标 MAC：B</text>
+    <text x="1200" y="341" fill="#40556f" font-size="17">⑥ 按 DP 交付</text>
+  </g>
+
+  <g transform="translate(45 390)">
+    <rect width="145" height="170" rx="18" fill="url(#device)" stroke="#40556f" stroke-width="5"/>
+    <text x="72" y="38" fill="#293b53" font-family="sans-serif" font-size="24" font-weight="700" text-anchor="middle">微信 A</text>
+    <path d="M22 58 H123" stroke="#9aacc0" stroke-width="2"/>
+    <text x="72" y="91" fill="#40556f" font-family="sans-serif" font-size="18" text-anchor="middle">发送图片</text>
+    <text x="72" y="124" fill="#65758a" font-family="sans-serif" font-size="16" text-anchor="middle">应用程序</text>
+    <text x="72" y="149" fill="#65758a" font-family="monospace" font-size="15" text-anchor="middle">SP</text>
+  </g>
+
+  <g transform="translate(210 375)">
+    <rect width="165" height="200" rx="18" fill="#ffffff" stroke="#40556f" stroke-width="5"/>
+    <text x="82" y="38" fill="#293b53" font-family="sans-serif" font-size="22" font-weight="700" text-anchor="middle">操作系统 A</text>
+    <path d="M20 56 H145" stroke="#9aacc0" stroke-width="2"/>
+    <text x="82" y="88" fill="#40556f" font-family="sans-serif" font-size="17" text-anchor="middle">填写 Header</text>
+    <text x="82" y="117" fill="#40556f" font-family="sans-serif" font-size="17" text-anchor="middle">判断 DIP 异网</text>
+    <text x="82" y="146" fill="#40556f" font-family="sans-serif" font-size="17" text-anchor="middle">选择默认网关</text>
+    <text x="82" y="178" fill="#65758a" font-family="monospace" font-size="15" text-anchor="middle">SIP / DIP / SP / DP</text>
+  </g>
+
+  <g transform="translate(410 405)">
+    <rect width="130" height="140" rx="16" fill="url(#switchBody)" stroke="#293b53" stroke-width="5"/>
+    <text x="65" y="44" fill="#ffffff" font-family="sans-serif" font-size="21" font-weight="700" text-anchor="middle">Switch A</text>
+    <text x="65" y="75" fill="#e5eef8" font-family="sans-serif" font-size="16" text-anchor="middle">按 MAC 转发</text>
+    <g fill="#b9f0d0" stroke="#203247" stroke-width="2">
+      <rect x="24" y="96" width="22" height="15" rx="3"/><rect x="54" y="96" width="22" height="15" rx="3"/><rect x="84" y="96" width="22" height="15" rx="3"/>
+    </g>
+  </g>
+
+  <g transform="translate(600 370)">
+    <rect width="200" height="210" rx="25" fill="url(#routerBody)" stroke="#8e3f28" stroke-width="6"/>
+    <text x="100" y="45" fill="#ffffff" font-family="sans-serif" font-size="26" font-weight="700" text-anchor="middle">Router</text>
+    <text x="100" y="77" fill="#ffe6dc" font-family="sans-serif" font-size="17" text-anchor="middle">默认网关</text>
+    <path d="M25 96 H175" stroke="#e9a58d" stroke-width="2"/>
+    <text x="100" y="127" fill="#ffffff" font-family="sans-serif" font-size="17" text-anchor="middle">④ 检查 DIP</text>
+    <text x="100" y="155" fill="#ffffff" font-family="sans-serif" font-size="17" text-anchor="middle">查路由表并选择接口</text>
+    <text x="100" y="184" fill="#ffe6dc" font-family="sans-serif" font-size="16" text-anchor="middle">连接网络 A 与网络 B</text>
+  </g>
+
+  <g transform="translate(860 405)">
+    <rect width="130" height="140" rx="16" fill="url(#switchBody)" stroke="#293b53" stroke-width="5"/>
+    <text x="65" y="44" fill="#ffffff" font-family="sans-serif" font-size="21" font-weight="700" text-anchor="middle">Switch B</text>
+    <text x="65" y="75" fill="#e5eef8" font-family="sans-serif" font-size="16" text-anchor="middle">按 MAC 转发</text>
+    <g fill="#b9f0d0" stroke="#203247" stroke-width="2">
+      <rect x="24" y="96" width="22" height="15" rx="3"/><rect x="54" y="96" width="22" height="15" rx="3"/><rect x="84" y="96" width="22" height="15" rx="3"/>
+    </g>
+  </g>
+
+  <g transform="translate(1025 375)">
+    <rect width="165" height="200" rx="18" fill="#ffffff" stroke="#40556f" stroke-width="5"/>
+    <text x="82" y="38" fill="#293b53" font-family="sans-serif" font-size="22" font-weight="700" text-anchor="middle">操作系统 B</text>
+    <path d="M20 56 H145" stroke="#9aacc0" stroke-width="2"/>
+    <text x="82" y="91" fill="#40556f" font-family="sans-serif" font-size="17" text-anchor="middle">接收数据包</text>
+    <text x="82" y="122" fill="#40556f" font-family="sans-serif" font-size="17" text-anchor="middle">读取 DP</text>
+    <text x="82" y="153" fill="#40556f" font-family="sans-serif" font-size="17" text-anchor="middle">交给对应服务</text>
+    <text x="82" y="181" fill="#65758a" font-family="monospace" font-size="15" text-anchor="middle">DIP / DP</text>
+  </g>
+
+  <g transform="translate(1210 390)">
+    <rect width="145" height="170" rx="18" fill="url(#device)" stroke="#40556f" stroke-width="5"/>
+    <text x="72" y="38" fill="#293b53" font-family="sans-serif" font-size="24" font-weight="700" text-anchor="middle">微信 B</text>
+    <path d="M22 58 H123" stroke="#9aacc0" stroke-width="2"/>
+    <text x="72" y="91" fill="#40556f" font-family="sans-serif" font-size="18" text-anchor="middle">收到图片</text>
+    <text x="72" y="124" fill="#65758a" font-family="sans-serif" font-size="16" text-anchor="middle">目标服务</text>
+    <text x="72" y="149" fill="#65758a" font-family="monospace" font-size="15" text-anchor="middle">DP</text>
+  </g>
+
+  <g fill="none" stroke="#c7603e" stroke-width="5" stroke-linecap="round" marker-end="url(#orangeArrow)">
+    <path d="M292 600 C380 675 510 675 620 590"/>
+    <path d="M780 590 C890 675 1020 675 1107 600"/>
+  </g>
+  <g font-family="sans-serif" text-anchor="middle">
+    <rect x="390" y="650" width="180" height="42" rx="21" fill="#fff5ef" stroke="#e0b39f" stroke-width="2"/>
+    <text x="480" y="678" fill="#a94e2d" font-size="18" font-weight="600">② ARP：查询网关 MAC</text>
+    <rect x="830" y="650" width="190" height="42" rx="21" fill="#fff5ef" stroke="#e0b39f" stroke-width="2"/>
+    <text x="925" y="678" fill="#a94e2d" font-size="18" font-weight="600">ARP：查询电脑 B MAC</text>
+  </g>
+
+  <text x="700" y="775" fill="#65758a" font-family="sans-serif" font-size="19" text-anchor="middle">IP 与端口标识端到端通信；每一段局域网转发使用相应的目标 MAC 地址。</text>
+</svg>
